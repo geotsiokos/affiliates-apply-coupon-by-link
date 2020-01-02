@@ -50,7 +50,6 @@ function apply_affiliate_coupon( $cart ) {
 		$affiliate_id = Affiliates_Service::get_referrer_id();
 		$affiliates_attributes_table = $affiliates_db->get_tablename( 'affiliates_attributes' );
 		$affiliates_attributes_coupons = $affiliates_db->get_objects( "SELECT attr_value FROM $affiliates_attributes_table WHERE affiliate_id = %d AND attr_key = 'coupons' ", $affiliate_id );
-		error_log( print_r( $affiliates_attributes_coupons, true ) );
 		$coupon_codes = explode( ',', $affiliates_attributes_coupons[0]->attr_value );
 		$applied_coupons = $cart->get_applied_coupons();
 
