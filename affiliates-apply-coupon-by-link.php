@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'plugins_loaded', 'affiliates_apply_coupon_by_link' );
-function affiliates_apply_coupons_by_link() {
+function affiliates_apply_coupon_by_link() {
 	if ( defined( 'AFFILIATES_CORE_VERSION' )  ) {
 		if ( !class_exists( class_exists( 'Affiliates_Service' ) ) ) {
 			require_once AFFILIATES_CORE_LIB . '/class-affiliates-service.php';
@@ -45,8 +45,6 @@ function affiliates_apply_coupons_by_link() {
 
 function apply_affiliate_coupon( $cart ) {
 	global $affiliates_db;
-
-	error_log( print_r( $cart, true ) );
 
 	if ( Affiliates_Service::get_referrer_id() ) {
 		$affiliate_id = Affiliates_Service::get_referrer_id();
